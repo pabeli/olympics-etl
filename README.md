@@ -8,6 +8,6 @@ In the following repo, you will find a simple ETL process using different kinds 
 1. Activate the environment and install requirements with: `pip install -r requirements.txt`
 1. Copy the `.env.example` and call it `env`.
 1. Change the variable `DATABASE_LOCATION` if needed.
-1. Then, you can run the code with `main.py`
+1. Then, you can run the code with `python3 main.py`
 
 Python version: `3.9.5`

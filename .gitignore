@@ -1,0 +1,6 @@
+/env
+/datasets
+.env
+
+__pycache__
+*.sqlite

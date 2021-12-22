@@ -39,10 +39,8 @@ def load_data(dfs):
     gender = dfs['gender']
     medals = dfs['medals']
     teams = dfs['teams']
-
-    print(medals)
-    print(teams)
-
+    
+    # Check if the table exists
     if not insp.has_table('athletes'):
         # Create the table
         sql_create_athletes_table = Table(
@@ -53,6 +51,7 @@ def load_data(dfs):
             Column('Country', String),
             Column('Discipline', String)
             )
+    # Check if the table exists
     if not insp.has_table('coaches'):
         sql_create_coaches_table = Table(
             'coaches',
@@ -63,6 +62,7 @@ def load_data(dfs):
             Column('Discipline', String),
             Column('Event', String)
             )
+    # Check if the table exists
     if not insp.has_table('gender'):
         sql_create_gender_table = Table(
             'gender',
@@ -73,6 +73,7 @@ def load_data(dfs):
             Column('Male', Integer),
             Column('Total', Integer)
             )
+    # Check if the table exists
     if not insp.has_table('medals'):
         sql_create_medals_table = Table(
             'medals',
@@ -86,6 +87,7 @@ def load_data(dfs):
             Column('Total', Integer),
             Column('Rank by Total', Integer),
             )
+    # Check if the table exists
     if not insp.has_table('teams'):
         sql_create_teams_table = Table(
             'teams',
@@ -96,9 +98,10 @@ def load_data(dfs):
             Column('Country', String),
             Column('Event', String),
             )
-    
+    # Create the tables
     meta.create_all()
-        
+    
+    # Try to save the data
     try:
         athletes.to_sql('athletes', engine, if_exists='append')
         coaches.to_sql('coaches', engine, if_exists='append')
@@ -108,6 +111,7 @@ def load_data(dfs):
     except:
         logging.info('Data already exists in the database')
     
+    # Close connection with database
     conn.close()
 
     logging.info('Close database successfully')

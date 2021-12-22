@@ -1,5 +1,5 @@
 # `olympics-etl`
----
+
 In the following repo, you will find a simple ETL process using different kinds of Python's tools in order to perform the desired task.
 
 ## Installation steps

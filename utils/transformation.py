@@ -6,11 +6,12 @@ def check_if_no_empty_data(dfs):
     """
     no_empty_data = {}
 
-    # Check if 
+    # Check if there's empty data
     for key in dfs:
         if dfs[key].empty:
             print(f'No data in dataframe {key}')
         else:
+            # If the data is not empty, it will be consider
             no_empty_data[key] = dfs[key]
 
     # We can set the primary key here
@@ -21,7 +22,7 @@ def check_if_no_empty_data(dfs):
     for key in no_empty_data:
         if no_empty_data[key].isnull().values.any():
             # We could handle this in multiple ways
-            # Here we would replace, but an exception could be raised
+            # Here we would replace, but an exception could be raised at this point if that's the case
             no_empty_data[key].fillna('no-value', inplace=True)
     
     return no_empty_data
